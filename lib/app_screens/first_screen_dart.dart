@@ -11,86 +11,97 @@ class FirstScreen extends StatelessWidget {
         titleTextStyle: const TextStyle(
             color: Colors.white, fontSize: 30.0, fontStyle: FontStyle.italic),
       ),
-      body: Material(
-        color: Colors.deepPurple,
-        child: Center(
-          child: Container(
-              margin: const EdgeInsets.all(20.0),
-              padding: const EdgeInsets.only(left: 10.0, top: 60.0),
-              alignment: AlignmentDirectional.center,
-              color: Colors.deepPurpleAccent,
-              //width: 300.00,
-              //height : 250.00,
-              child: Column(
-                children: [
-                  FlightImageAsset(),
-                  Container(
-                    height: 30.0,
-                  ),
-                  Row(
-                    // overflow???
-                    children: const [
-                      Expanded(
-                        child: Text(
-                          "Spice Jets",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35.0,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
-                          ),
+      body: const ShowListView(),
+    );
+  }
+}
+
+class ShowRowColumn extends StatelessWidget {
+  const ShowRowColumn({Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.deepPurple,
+      child: Center(
+        child: Container(
+            margin: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(left: 10.0, top: 60.0),
+            alignment: AlignmentDirectional.center,
+            color: Colors.deepPurpleAccent,
+            //width: 300.00,
+            //height : 250.00,
+            child: Column(
+              children: [
+                FlightImageAsset(),
+                Container(
+                  height: 30.0,
+                ),
+                Row(
+                  // overflow???
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        "Spice Jets",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35.0,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Expanded(
-                        child: Text(
-                          "To Infinity and Beyond by BudLightYear",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
-                          ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "To Infinity and Beyond by BudLightYear",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                    ],
-                  ),
-                  Container(
-                    height: 20.0,
-                  ),
-                  Row(
-                    // overflow???
-                    children: const [
-                      Expanded(
-                        child: Text(
-                          "Air Canada",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 35.0,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
-                          ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 20.0,
+                ),
+                Row(
+                  // overflow???
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        "Air Canada",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35.0,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      Expanded(
-                        child: Text(
-                          "Never experience before you fly to Canada",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontFamily: 'Raleway',
-                            fontWeight: FontWeight.w700,
-                          ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Never experience before you fly to Canada",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontFamily: 'Raleway',
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                    ],
-                  ),
-                  showElebatedButton()
-                ],
-              )),
+                    ),
+                  ],
+                ),
+                const showElebatedButton(),
+              ],
+            )
         ),
       ),
     );
@@ -141,5 +152,25 @@ class showElebatedButton extends StatelessWidget {
     );
     showDialog(
         context: context, builder: (BuildContext context) => alertDialog);
+  }
+}
+
+class ShowListView extends StatelessWidget {
+  const ShowListView({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    ListView listView = ListView(
+      children:  <Widget>[
+        const ListTile(
+          leading: Icon(Icons.phone),
+          title: Text("Phone number"),
+          subtitle: Text("416-803-7788"),
+          trailing: Icon(Icons.wb_sunny),
+        ),
+        const Text("Yet another element in List"),
+        Container(color: Colors.red, height: 50),
+      ],
+    );
+  return Container(color: Colors.lime,child: listView,);
   }
 }
