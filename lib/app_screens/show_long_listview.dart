@@ -5,6 +5,12 @@ import 'package:untitled3/app_screens/alert_dialog.dart';
 // 2. Widget 으로 변경
 // 3. ListView 에 적용 (builder 함수 이용)
 
+/* ListView is a stateful widget. Just because you wrap it in a stateless widget does not mean
+   it also becomes stateless.
+   That's the whole magic,
+   you can have many stateful and stateless widgets wrapped in stateful and
+   stateless widgets...
+ */
 class ShowLongListView extends StatelessWidget {
   const ShowLongListView({Key? key}) : super(key: key);
 
