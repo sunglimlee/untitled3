@@ -24,7 +24,9 @@ class FirstScreen extends StatelessWidget {
               child: Column(
                 children: [
                   FlightImageAsset(),
-                  Container(height: 30.0,),
+                  Container(
+                    height: 30.0,
+                  ),
                   Row(
                     // overflow???
                     children: const [
@@ -86,6 +88,7 @@ class FirstScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  showElebatedButton()
                 ],
               )),
         ),
@@ -100,7 +103,43 @@ class FlightImageAsset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AssetImage assetImage = const AssetImage("./images/flight.png");
-    Image image = Image(image: assetImage,);
-    return Container(child: image,);
+    Image image = Image(
+      image: assetImage,
+    );
+    return Container(
+      child: image,
+    );
+  }
+}
+
+class showElebatedButton extends StatelessWidget {
+  const showElebatedButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 30.0),
+      width: 230.0,
+      height: 50.0,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.deepOrange)),
+        onPressed: () => showAlertDialog(showAlertDialog(context)),
+        child: const Text(
+          "Book your Flight",
+          style: TextStyle(
+              color: Colors.white, fontSize: 20.0, fontFamily: "Raleway"),
+        ),
+      ),
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+    AlertDialog alertDialog = const AlertDialog(
+      title: Text("Booking"),
+      content: Text("You have booked with a great price."),
+    );
+    showDialog(
+        context: context, builder: (BuildContext context) => alertDialog);
   }
 }
