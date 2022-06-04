@@ -22,7 +22,8 @@ class ShowLongListView extends StatelessWidget {
           trailing: const Icon(Icons.delete),
           onTap: () {
             //debugPrint('Item ${index} was tapped');
-            showAlertDialog1(context, content: "Item ${index} was tapped", title: "Thank you");
+            //showAlertDialog1(context, content: "Item ${index} was tapped", title: "Thank you");
+            showSnackBar1(context, index);
           }
         );
       },
