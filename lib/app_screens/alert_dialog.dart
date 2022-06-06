@@ -29,3 +29,11 @@ showSnackBar1(BuildContext context, int index) {
   //여기가 중요하다.
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
+
+//숫자인지 확인하는 함수
+bool isNumeric(String s) {
+  if (s == null) {
+    return false;
+  }
+  return double.tryParse(s) != null;
+}
