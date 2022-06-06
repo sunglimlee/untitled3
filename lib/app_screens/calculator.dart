@@ -96,7 +96,7 @@ class _SIFormState extends State<SIForm> {
                     child: TextFormField(
                       validator: (value) {
                         if (!isNumeric(value!)) {
-                          return "Please enter Time in years. e.g : 25";
+                          return "Please enter Time in years. e.g : 30";
                         }
                         return null;
                       },
